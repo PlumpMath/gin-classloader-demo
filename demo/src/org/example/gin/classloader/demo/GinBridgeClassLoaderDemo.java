@@ -27,7 +27,7 @@ public class GinBridgeClassLoaderDemo {
     public static void main(String[] argv) throws Exception {
         URL[] urls = readUrlsFromCommandLine(argv);
 
-        ClassLoader myClassLoader = new URLClassLoader(urls);
+        ClassLoader myClassLoader = new URLClassLoader(urls, GinBridgeClassLoaderDemo.class.getClassLoader());
         Thread.currentThread().setContextClassLoader(myClassLoader);
 
         Class<?> gwtCompiler = myClassLoader.loadClass("com.google.gwt.dev.Compiler");
