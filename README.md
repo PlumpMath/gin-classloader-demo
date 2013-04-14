@@ -23,6 +23,7 @@ found in the following snippet from the `GinjectorGenerator` class:
     
       return (Class<? extends Ginjector>) type;
     }
+
 More precisely it's the `Ginjector.class.isAssignableFrom(type)` comparison that fails.
 
 I came up with a bunch of possible solution to the problem:
@@ -47,13 +48,16 @@ You can use Maven as well as Ant to build the project.
 ### Maven
 
 To build the project simply run from the project root
-> mvn package
+
+    mvn package
 
 To run the demo run
-> mvn verify
+
+    mvn verify
 
 The provided fixes are selectable via profiles. To run the Demo with the first applied run
-> mvn verify -P fix-1
+
+    mvn verify -P fix-1
 
 The same goes for the second and third fix.
 
@@ -74,16 +78,13 @@ Before you can run the Ant build you need to put the following jars into the "li
  * validation-api-1.0.0.GA-sources.jar
 
 To build the project just run ant
-> ant
 
-there is a bunch of shell scripts to run the demo afterwards (namely
-     run-demo.sh
-and
-     run-demo-with-fix-[123].sh
-).
+    ant
 
-License
--------
+there is a bunch of shell scripts to run the demo afterwards (namely `run-demo.sh` and `run-demo-with-fix-[123].sh`).
+
+
+# License
      Copyright 2012 Eric Karge
 
      Licensed under the Apache License, Version 2.0 (the "License");
