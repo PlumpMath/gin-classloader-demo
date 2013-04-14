@@ -4,7 +4,7 @@
 <!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
 <!-- ====================================================================== -->
 
-<project name="gin-classloader-fix" default="package" basedir=".">
+<project name="gin-classloader-fix-1" default="package" basedir=".">
 
   <!-- ====================================================================== -->
   <!-- Build environment properties                                           -->
