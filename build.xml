@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- ====================================================================== -->
+
+<project name="gin-classloader-demo-root" default="package" basedir=".">
+
+  <!-- ====================================================================== -->
+  <!-- Cleaning up target                                                     -->
+  <!-- ====================================================================== -->
+
+  <target name="clean" description="Clean the output directory">
+    <ant antfile="build.xml" dir="demo" target="clean"/>
+    <ant antfile="build.xml" dir="fix-1" target="clean"/>
+    <ant antfile="build.xml" dir="fix-2" target="clean"/>
+    <ant antfile="build.xml" dir="fix-3" target="clean"/>
+  </target>
+
+  <!-- ====================================================================== -->
+  <!-- Compilation target                                                     -->
+  <!-- ====================================================================== -->
+
+  <target name="compile" description="Compile the code">
+    <ant antfile="build.xml" dir="demo" target="compile"/>
+    <ant antfile="build.xml" dir="fix-1" target="compile"/>
+    <ant antfile="build.xml" dir="fix-2" target="compile"/>
+    <ant antfile="build.xml" dir="fix-3" target="compile"/>
+  </target>
+
+  <!-- ====================================================================== -->
+  <!-- Package target                                                         -->
+  <!-- ====================================================================== -->
+
+  <target name="package" description="Package the application">
+    <ant antfile="build.xml" dir="demo" target="package"/>
+    <ant antfile="build.xml" dir="fix-1" target="package"/>
+    <ant antfile="build.xml" dir="fix-2" target="package"/>
+    <ant antfile="build.xml" dir="fix-3" target="package"/>
+  </target>
+
+</project>
