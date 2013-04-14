@@ -1,5 +1,5 @@
 /*
- Copyright 2012 Eric Karge
+ Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -21,9 +21,9 @@ import com.google.gwt.core.client.GWT;
 
 public class MyEntryPoint implements EntryPoint {
 
-    private final MyGinjector injector = GWT.create(MyGinjector.class);
+  private final MyGinjector injector = GWT.create(MyGinjector.class);
 
-    @Override
-    public void onModuleLoad() {
-    }
+  @Override
+  public void onModuleLoad() {
+  }
 }

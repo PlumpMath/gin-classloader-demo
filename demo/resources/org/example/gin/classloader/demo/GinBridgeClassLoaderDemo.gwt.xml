@@ -1,5 +1,5 @@
 <!--
- Copyright 2012 Eric Karge
+ Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -14,10 +14,11 @@
  limitations under the License.
 -->
 
-<!DOCTYPE module SYSTEM "http://google-web-toolkit.googlecode.com/svn/releases/1.5/distro-source/core/src/gwt-module.dtd">
+<!DOCTYPE module SYSTEM
+    "http://google-web-toolkit.googlecode.com/svn/releases/1.5/distro-source/core/src/gwt-module.dtd">
 <module rename-to="GinBridgeClassLoaderDemo">
-    <inherits name="com.google.gwt.core.Core"/>
-    <inherits name="com.google.gwt.inject.Inject"/>
+  <inherits name="com.google.gwt.core.Core"/>
+  <inherits name="com.google.gwt.inject.Inject"/>
 
-    <entry-point class="org.example.gin.classloader.demo.client.MyEntryPoint"/>
+  <entry-point class="org.example.gin.classloader.demo.client.MyEntryPoint"/>
 </module>

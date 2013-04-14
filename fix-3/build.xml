@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright 2012 Eric Karge
+ Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -52,14 +52,14 @@
 
   <target name="compile" description="Compile the code">
     <mkdir dir="${build.outputDir}"/>
-    <javac destdir="${build.outputDir}" 
-           nowarn="false" 
-           debug="true" 
-           optimize="false" 
-           deprecation="true" 
-           target="1.5" 
-           verbose="false" 
-           fork="false" 
+    <javac destdir="${build.outputDir}"
+           nowarn="false"
+           debug="true"
+           optimize="false"
+           deprecation="true"
+           target="1.5"
+           verbose="false"
+           fork="false"
            source="1.5">
       <src>
         <pathelement location="${build.srcDir.0}"/>
@@ -73,10 +73,10 @@
   <!-- ====================================================================== -->
 
   <target name="package" depends="compile" description="Package the application">
-    <jar jarfile="${build.dir}/${build.finalName}.jar" 
-         compress="true" 
-         index="false" 
-         basedir="${build.outputDir}" 
+    <jar jarfile="${build.dir}/${build.finalName}.jar"
+         compress="true"
+         index="false"
+         basedir="${build.outputDir}"
          excludes="**/package.html"/>
   </target>
 

@@ -1,5 +1,5 @@
 /*
- Copyright 2012 Eric Karge
+ Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -24,22 +24,22 @@ import java.net.URLClassLoader;
 
 public class GinBridgeClassLoaderDemo {
 
-    public static void main(String[] argv) throws Exception {
-        URL[] urls = readUrlsFromCommandLine(argv);
+  public static void main(String[] argv) throws Exception {
+    URL[] urls = readUrlsFromCommandLine(argv);
 
-        ClassLoader myClassLoader = new URLClassLoader(urls, GinBridgeClassLoaderDemo.class.getClassLoader());
-        Thread.currentThread().setContextClassLoader(myClassLoader);
+    ClassLoader myClassLoader = new URLClassLoader(urls, GinBridgeClassLoaderDemo.class.getClassLoader());
+    Thread.currentThread().setContextClassLoader(myClassLoader);
 
-        Class<?> gwtCompiler = myClassLoader.loadClass("com.google.gwt.dev.Compiler");
-        Method main = gwtCompiler.getMethod("main", String[].class);
-        main.invoke(null, new Object[]{new String[]{"org.example.gin.classloader.demo.GinBridgeClassLoaderDemo"}});
+    Class<?> gwtCompiler = myClassLoader.loadClass("com.google.gwt.dev.Compiler");
+    Method main = gwtCompiler.getMethod("main", String[].class);
+    main.invoke(null, new Object[]{new String[]{"org.example.gin.classloader.demo.GinBridgeClassLoaderDemo"}});
+  }
+
+  private static URL[] readUrlsFromCommandLine(String[] argv) throws MalformedURLException {
+    URL[] urls = new URL[argv.length];
+    for (int i = 0; i < argv.length; ++i) {
+      urls[i] = new File(argv[i]).toURI().toURL();
     }
-
-    private static URL[] readUrlsFromCommandLine(String[] argv) throws MalformedURLException {
-        URL[] urls = new URL[argv.length];
-        for (int i = 0; i < argv.length; ++i) {
-            urls[i] = new File(argv[i]).toURI().toURL();
-        }
-        return urls;
-    }
+    return urls;
+  }
 }

@@ -1,5 +1,5 @@
 /*
- Copyright 2012 Eric Karge
+ Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package org.example.gin.classloader.demo.client;
 
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
-import com.google.inject.Module;
 
 @GinModules({})
 public interface MyGinjector extends Ginjector {
