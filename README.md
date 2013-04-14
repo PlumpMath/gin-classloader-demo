@@ -3,6 +3,41 @@
 This code reproduces a problem while using gin within a custom classloader
 and provides three possible solutions.
 
+Running the GWT-Compiler within a classloader other than the system classloader may lead
+to a very confusing error message stating that a gin-injector is supposedly not derived
+from Ginjector. Cause for that is a comparison between classes from different classloaders
+found in the following snippet from the `GinjectorGenerator` class:
+
+    @SuppressWarnings("unchecked")
+    // Due to deferred binding we assume that the requested class has to be a ginjector.
+    private Class<? extends Ginjector> getGinjectorType(String requestedClass)
+        throws ClassNotFoundException {
+
+      // We choose not to initialize ginjectors since we do not require it for reflective analysis and
+      // some people statically call GWT.create in them (which is illegal during Gin generator runs).
+      Class<?> type = loadClass(requestedClass, false);
+      if (!Ginjector.class.isAssignableFrom(type)) {
+       throw new IllegalArgumentException("The type passed does not inherit from Ginjector - "
+           + "please check the deferred binding rules.");
+      }
+    
+      return (Class<? extends Ginjector>) type;
+    }
+More precisely it's the `Ginjector.class.isAssignableFrom(type)` comparison that fails.
+
+I came up with a bunch of possible solution to the problem:
+
+ 1. Use the `GinBridgeClassLoader` that is also used to load the `type` to load the Ginjector interface
+    instead of comparing against `Ginjector.class`.
+ 2. Use the own classloader (namely `GinBridgeClassLoader.class.getClassLoader()`) as
+    parent classloader of the `GinBridgeClassLoader`.
+ 3. Use the current thread context classloader as parent classloader of the `GinBridgeClassLoader`
+
+The first solution would be my personal best guess to be the Right Thing (TM). While the second one works
+even if the thread's context classloader is set incorrectly, gwt uses the thread's context classloader to
+load the module descriptors (and most probably all other resources) thus the third seems still prefarable
+over the second.
+
 
 ## Build
 
