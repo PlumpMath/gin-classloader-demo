@@ -1,5 +1,7 @@
 .idea
 *.iml
 out
+/lib
+!/lib/README.md
 /war
 /gwt-unitCache
