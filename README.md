@@ -83,6 +83,10 @@ To build the project just run ant
 
 there is a bunch of shell scripts to run the demo afterwards (namely `run-demo.sh` and `run-demo-with-fix-[123].sh`).
 
+# Authors
+
+Eric Karge <eric.karge@hypoport.de>
+
 
 # License
      Copyright 2012 Eric Karge
