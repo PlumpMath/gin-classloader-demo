@@ -52,6 +52,7 @@
   <target name="compile" description="Compile the code">
     <mkdir dir="${build.outputDir}"/>
     <javac destdir="${build.outputDir}"
+           includeantruntime="false"
            nowarn="false"
            debug="true"
            optimize="false"
