@@ -14,5 +14,5 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-CLASSPATH="$(IFS=':'; set -- lib/aopalliance-*.jar lib/guice-*.jar lib/gwt-*.jar lib/javax.inject-*.jar lib/json-*.jar lib/validation-api-*.jar gwt-compiler-runner/out/gwt-compiler-runner.jar gwt-example-project/out/gwt-example-project.jar ; echo "$*")"
-java -cp "$CLASSPATH" org.example.gin.classloader.demo.GwtCompilerRunner lib/gin-*.jar
+CLASSPATH="$(IFS=':'; set -- lib/aopalliance-*.jar lib/guice-*.jar lib/gwt-*.jar lib/javax.inject-*.jar lib/json-*.jar lib/validation-api-*.jar gwt-compiler-runner/out/gwt-compiler-runner.jar ; echo "$*")"
+java -cp "$CLASSPATH" org.example.gin.classloader.demo.GwtCompilerRunner lib/gin-*.jar gwt-example-project/out/gwt-example-project.jar

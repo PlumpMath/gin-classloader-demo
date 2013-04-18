@@ -27,7 +27,7 @@ import java.util.Arrays;
 public class GwtCompilerRunner {
 
   public static void main(String[] argv) throws Exception {
-    Class<?> compiler = createGWTCompiler2(readUrlsFromCommandLine(argv));
+    Class<?> compiler = createGWTCompiler(readUrlsFromCommandLine(argv));
 
     runGWTCompiler(compiler);
   }
