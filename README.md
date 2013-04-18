@@ -36,7 +36,7 @@ I came up with a bunch of possible solution to the problem:
 
 The first solution does not work, because it is not feasible to access the injector's annotations later on.
 Since GWT uses the current thread's context classloader to load the GinjectorGenerator, the second and third
-are identical for all practical purposes.
+solution are identical for all practical purposes.
 
 
 ## Build
