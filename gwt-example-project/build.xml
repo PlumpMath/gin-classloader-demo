@@ -15,17 +15,16 @@
  limitations under the License.
 -->
 
-<project name="gin-classloader-demo" default="package" basedir=".">
+<project name="gwt-example-project" default="package" basedir=".">
 
   <!-- ====================================================================== -->
   <!-- Build environment properties                                           -->
   <!-- ====================================================================== -->
 
-  <property name="build.finalName" value="gin-classloader-demo"/>
+  <property name="build.finalName" value="gwt-example-project"/>
   <property name="build.dir" value="out"/>
   <property name="build.outputDir" value="${build.dir}/classes"/>
   <property name="build.srcDir.0" value="src"/>
-  <property name="build.resourceDir.0" value="resources"/>
 
   <property name="libdir" value="../lib"/>
   <property name="settings.offline" value="false"/>
@@ -36,6 +35,8 @@
   <!-- ====================================================================== -->
 
   <path id="build.classpath">
+    <pathelement location="${libdir}/gin-2.0.0.jar"/>
+    <pathelement location="${libdir}/gwt-user-2.5.1.jar"/>
   </path>
 
   <!-- ====================================================================== -->
@@ -67,7 +68,7 @@
       <classpath refid="build.classpath"/>
     </javac>
     <copy todir="${build.outputDir}">
-      <fileset dir="${build.resourceDir.0}"/>
+      <fileset dir="${build.srcDir.0}"/>
     </copy>
   </target>
 
@@ -81,9 +82,6 @@
          index="false"
          basedir="${build.outputDir}"
          excludes="**/package.html">
-      <manifest>
-        <attribute name="Main-Class" value="org.example.gin.classloader.demo.GinBridgeClassLoaderDemo"/>
-      </manifest>
     </jar>
   </target>
 

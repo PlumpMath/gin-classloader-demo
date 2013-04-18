@@ -21,12 +21,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>gin-classloader-demo</groupId>
-  <artifactId>gin-classloader-demo-root</artifactId>
+  <artifactId>gin-classloader-demo</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
-    <module>demo</module>
+    <module>gwt-compiler-runner</module>
+    <module>gwt-example-project</module>
     <module>fix-1</module>
     <module>fix-2</module>
     <module>fix-3</module>
@@ -40,11 +41,12 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.2.1</version>
           <configuration>
-            <mainClass>org.example.gin.classloader.demo.GinBridgeClassLoaderDemo</mainClass>
+            <mainClass>org.example.gin.classloader.demo.GwtCompilerRunner</mainClass>
             <classpathScope>runtime</classpathScope>
             <includeProjectDependencies>true</includeProjectDependencies>
             <arguments>
               <argument>${com.google.gwt.inject:gin:jar}</argument>
+              <argument>${gin-classloader-demo:gwt-example-project:jar}</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -96,9 +98,15 @@
   <dependencies>
     <dependency>
       <groupId>gin-classloader-demo</groupId>
-      <artifactId>gin-classloader-demo</artifactId>
+      <artifactId>gwt-compiler-runner</artifactId>
       <version>0</version>
       <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>gin-classloader-demo</groupId>
+      <artifactId>gwt-example-project</artifactId>
+      <version>0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>gin-classloader-demo</groupId>
@@ -124,6 +132,30 @@
       <version>2.0.0</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <version>2.5.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <version>2.5.1</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>3.0</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject.extensions</groupId>
+      <artifactId>guice-assistedinject</artifactId>
+      <version>3.0</version>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
 
   <profiles>
@@ -137,7 +169,7 @@
               <artifactId>exec-maven-plugin</artifactId>
               <version>1.2.1</version>
               <configuration>
-                <mainClass>org.example.gin.classloader.demo.GinBridgeClassLoaderDemo</mainClass>
+                <mainClass>org.example.gin.classloader.demo.GwtCompilerRunner</mainClass>
                 <classpathScope>runtime</classpathScope>
                 <includeProjectDependencies>true</includeProjectDependencies>
                 <arguments>
@@ -160,7 +192,7 @@
               <artifactId>exec-maven-plugin</artifactId>
               <version>1.2.1</version>
               <configuration>
-                <mainClass>org.example.gin.classloader.demo.GinBridgeClassLoaderDemo</mainClass>
+                <mainClass>org.example.gin.classloader.demo.GwtCompilerRunner</mainClass>
                 <classpathScope>runtime</classpathScope>
                 <includeProjectDependencies>true</includeProjectDependencies>
                 <arguments>
@@ -183,7 +215,7 @@
               <artifactId>exec-maven-plugin</artifactId>
               <version>1.2.1</version>
               <configuration>
-                <mainClass>org.example.gin.classloader.demo.GinBridgeClassLoaderDemo</mainClass>
+                <mainClass>org.example.gin.classloader.demo.GwtCompilerRunner</mainClass>
                 <classpathScope>runtime</classpathScope>
                 <includeProjectDependencies>true</includeProjectDependencies>
                 <arguments>

@@ -34,10 +34,9 @@ I came up with a bunch of possible solution to the problem:
     parent classloader of the `GinBridgeClassLoader`.
  3. Use the current thread context classloader as parent classloader of the `GinBridgeClassLoader`
 
-The first solution would be my personal best guess to be the Right Thing (TM). While the second one works
-even if the thread's context classloader is set incorrectly, gwt uses the thread's context classloader to
-load the module descriptors (and most probably all other resources) thus the third seems still prefarable
-over the second.
+The first solution does not work, because it is not feasible to access the Injectors annotations later on.
+Since GWT uses the current thread's context classloader to load the GinjectorGenerator, the second and third
+are identical for all practical purposes.
 
 
 ## Build

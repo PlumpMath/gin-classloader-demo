@@ -1,4 +1,4 @@
-<!--
+/*
  Copyright 2012 Eric Karge (eric.karge@hypoport.de)
 
  Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,13 +12,13 @@
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
--->
+*/
 
-<!DOCTYPE module SYSTEM
-    "http://google-web-toolkit.googlecode.com/svn/releases/1.5/distro-source/core/src/gwt-module.dtd">
-<module rename-to="GinBridgeClassLoaderDemo">
-  <inherits name="com.google.gwt.core.Core"/>
-  <inherits name="com.google.gwt.inject.Inject"/>
+package org.example.gin.classloader.demo.client;
 
-  <entry-point class="org.example.gin.classloader.demo.client.MyEntryPoint"/>
-</module>
+import com.google.gwt.inject.client.GinModules;
+import com.google.gwt.inject.client.Ginjector;
+
+@GinModules({MyModule.class})
+public interface MyInjector extends Ginjector {
+}

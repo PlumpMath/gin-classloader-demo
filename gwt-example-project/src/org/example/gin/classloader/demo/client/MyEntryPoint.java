@@ -16,9 +16,13 @@
 
 package org.example.gin.classloader.demo.client;
 
-import com.google.gwt.inject.client.GinModules;
-import com.google.gwt.inject.client.Ginjector;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 
-@GinModules({})
-public interface MyGinjector extends Ginjector {
+public class MyEntryPoint implements EntryPoint {
+
+  private final MyInjector injector = GWT.create(MyInjector.class);
+
+  public void onModuleLoad() {
+  }
 }
